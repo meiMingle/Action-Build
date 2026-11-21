@@ -8,6 +8,7 @@ on:
         required: true
         default: oneplus_ace5_pro_v
         options:
+          - oneplus_ace5_pro_v
           - oneplus_nord_n30_se_5g_v
           - oneplus_10r_v
           - oneplus_nord_3_b
