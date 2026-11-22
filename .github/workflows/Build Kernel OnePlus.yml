@@ -522,6 +522,13 @@ jobs:
             sed -i 's/check_defconfig = None,/check_defconfig = "disabled",/' kernel_platform/build/kernel/kleaf/common_kernels.bzl
             sed -i 's/if check_defconfig == None:/if False:  # check_defconfig == None:/' kernel_platform/build/kernel/kleaf/common_kernels.bzl
           fi
+          # For OnePlusAce5Pro_ColorOS15 PKR110_15.0.0.840(CN01)
+          repo sync -c -j$(nproc) --no-clone-bundle --no-tags --force-sync
+
+          for p in kernel_platform/common kernel_platform/msm-kernel .; do
+            git -C "$p" fetch --depth=2 origin && git -C "$p" reset --hard HEAD~1
+          done
+          # For OnePlusAce5Pro_ColorOS15 PKR110_15.0.0.840(CN01)
 
       - name: Kernel Version Handling
         run: |
